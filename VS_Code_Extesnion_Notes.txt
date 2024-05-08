@@ -1,0 +1,64 @@
+Files
+***.configuration.json  - Describes symbols used for comments, brackets, etc.
+package.json            - Lists configuration file, file extensions, syntax files
+syntaxes/***.tmLanguage - Describes language syntax
+
+Exzample for ZX81 BASIC: https://github.com/jsanjose/zxbasic-vscode/tree/master 
+
+File types:
+filename.pc1500.sbs -> SBASIC source for PC-1500, et al
+filename.bas -> Tokenized BASIC
+filename.asc -> Plain text (ASCII) BASIC
+
+To fix line endings -
+Replace CRLF with CR
+
+: is seperator character. It seperates multiple statements on one line.
+Line -> 10 PRINT "PRINT IN QUOTES":PRINT A:PRINT "COLON :":A = 5
+Split at colon to get array of statements
+Statements -> 10 PRINT "PRINT IN QUOTES"
+              PRINT A
+              PRINT "COLON :"
+              A = 5
+Split at space to get segements of statements
+Segments of Statement 0 ->
+              10
+              PRINT
+              "PRINT IN QUOTES"
+Statement 0, Segment 0 is line number. 
+
+Statement Loop (0 to #Statements)
+    Segment Loop (0 to #Segments)
+        If Statement = 0 & Segment = 0
+            Decode line number
+        Else
+            Tokenize Segment
+        EndIf
+    Next Segment
+Next Statement
+
+
+To Tokenize - 
+Do one line at a time
+    Convert line number from ASCII to HB/LB [bytes 0-1]
+    Insert line size byte (not including bytes 0-2) [byte 2]
+    Replace keywords, not in quotes, with tokens
+        String split on " "?
+    Replace CRLF with LF
+    Calculate line length and set that byte
+
+To detokenize - 
+Do one line at a time
+    Replace CR with CRLF
+    Replace tokens with keywords
+
+To convert to ASCII - 
+Do one line at a time
+    Replace CRLF with CR
+Add second CR to EOF
+
+
+
+
+
+

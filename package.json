@@ -1,0 +1,46 @@
+{
+    "name": "sbasic",
+    "displayName": "Sharp_SBasic",
+    "description": "Sharp SBasic Syntax Highlighting",
+    "version": "1.0.0",
+    "icon": "images/logo.png",
+    "author": "Jeff Birt",
+    "publisher": "Soigeneris",
+    "engines": {
+        "vscode": "^1.0.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "keywords": [
+        "BASIC",
+        "Sharp",
+        "PC-1500"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Jeff-Birt/Sharp-SBASIC_VSCode_extension"
+    },
+    "contributes": {
+        "languages": [
+            {
+                "id": "pc1500",
+                "aliases": [
+                    "Sharp PC-1500 BASIC"
+                ],
+                "extensions": [
+                    ".bas",
+                    ".pc1500.bas"
+                ],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "pc1500",
+                "scopeName": "source.pc1500",
+                "path": "./syntaxes/sbasic.tmLanguage.json"
+            }
+        ]
+    }
+}
