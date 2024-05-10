@@ -2,27 +2,28 @@
 # Adds CE-158(X) header to file so it be loaded by CE-158(X)
 # Usage: ./hdr158.ps1 file.ext -type [0x(address)]
 #    ML: ./hdr158.ps1 file.bin -bin 0x7C01
-#   BAS: ./hdr158.ps1 file.bas -bas
+#   BAS: ./hdr158.ps1 file.tmp -bas
 # Outputs: file.mlb (Machine Language Binary with header)
 #        : file.bas (BASIC with header)
 # by Hey Birt!
 
 # Create filename.mlb and find length of bin file
-$name = $args[0]                                # filename
-[UInt16]$fLen = (Get-Item $name).Length         # bin file length
+$name = $args[0]                                    # filename
+[UInt16]$fLen = (Get-Item $name).Length - 1         # bin file length
 
-$type = $args[1]                                # 
+$type = $args[1]                                    # 
 if ($type -eq '-bin')
 {
-    $outName = $name.Trim(".bin")
-    $outName += ".mlb"                              # change extension
+    [string]$outName = $name -Replace "tmp","mlb"   # change extension
+    $outName = $outName.ToUpper()                   # make file name upper case
     $address = $args[1]                             # starting address of program
     $marker = 0x42                                  # the B in BCOM
 }
 elseif ($type -eq '-bas')
 {
-    $outName = $name -Replace "tmp","bas"
-    #$outName += ".bas"                              # change extension
+    [string]$outName = $name -Replace "tmp","bas"   # change extension          
+    $outName = $outName.ToUpper()                   # make file name upper case 
+    $address = 0x2000                               # bogus starting address         
     $marker = 0x40                                  # the @ in BCOM
 }
 # *** should trap incorrect or missing args[1]

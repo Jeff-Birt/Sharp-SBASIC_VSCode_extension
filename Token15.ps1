@@ -1,7 +1,7 @@
 # PC-1500 SBASIC Tokenizer script
-# Use - Token15 fileName.sbs
+# Use - Token15 fileName.pc1500.sbs
 # Outputs -     fileName.bas
-# Keywords much be space delimeted in source file
+# Line numbers and Keywords much be space delimeted in source file
 # EOL in source CRLF or LF. Tokenized file will have CR line endings.
 # By - Hey Birt!
 
@@ -54,7 +54,7 @@ $sourceFile = Get-Content -Path $args[0]
 $linesArray = $sourceFile -Split "`r?`n"        # split source file into array of lines
 [byte[]] $outputArray = @()
 
-$outName = $args[0] -Replace "pc1500.sbs","bas" # change extension
+$outName = $args[0] -Replace "pc1500.sbs","tmp" # change extension
 #$outName = 'para.pc1500.sbs' -Replace "pc1500.sbs","bas" # change extension ***fortesting                 
 
 for ($l = 0; $l -lt $linesArray.Length; $l++)
@@ -137,7 +137,10 @@ for ($l = 0; $l -lt $linesArray.Length; $l++)
 
 } # lines loop
 
-
+# Dump to screen in HEX-ASCII table
 Write-Output $outputArray | Format-Hex
 
+# Output filename.tmp, add CE158 header with hdr158.ps1, remove filename.tmp
 Set-Content -Value $outputArray -encoding byte -path $outName
+./hdr158.ps1 $outName -bas
+Remove-Item -Path $outName
