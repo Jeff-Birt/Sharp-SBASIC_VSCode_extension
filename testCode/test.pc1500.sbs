@@ -1,4 +1,0 @@
-10 PRINT "PRINT"
-20 A = A + 1
-30 PRINT A:REM this is a comment 
-40 B=2

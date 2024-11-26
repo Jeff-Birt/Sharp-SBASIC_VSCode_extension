@@ -1,3 +1,5 @@
+Add 'npm i --save-dev @types/node'
+
 If you want to modify this extension yourself you will need to download the whole project from GitHub as well as install node.js. The steps are below.
 
 First steps, only need to do once.

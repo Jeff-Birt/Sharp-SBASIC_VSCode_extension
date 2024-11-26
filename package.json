@@ -1,46 +1,419 @@
 {
+   
+
     "name": "sbasic",
+   
+
     "displayName": "Sharp_SBasic",
+   
+
     "description": "Sharp SBasic Syntax Highlighting",
-    "version": "1.0.0",
+   
+
+    "version": "1.1.5",
+   
+
     "icon": "images/logo.png",
+   
+
     "author": "Jeff Birt",
+   
+
     "publisher": "Soigeneris",
+   
+
     "engines": {
-        "vscode": "^1.0.0"
+   
+
+       
+
+    "vscode": "^1.0.0"
+   
+
     },
+   
+
     "categories": [
-        "Programming Languages"
+   
+
+       
+
+    "Programming Languages"
+   
+
     ],
+   
+
     "keywords": [
-        "BASIC",
-        "Sharp",
-        "PC-1500"
+   
+
+       
+
+    "BASIC",
+   
+
+       
+
+    "Sharp",
+   
+
+       
+
+    "PC-1500",
+   
+
+       
+
+    "PC-1600"
+   
+
     ],
+   
+
     "repository": {
-        "type": "git",
-        "url": "https://github.com/Jeff-Birt/Sharp-SBASIC_VSCode_extension"
+   
+
+       
+
+    "type": "git",
+   
+
+       
+
+    "url": "https://github.com/Jeff-Birt/Sharp-SBASIC_VSCode_extension"
+   
+
     },
+   
+
     "contributes": {
-        "languages": [
-            {
-                "id": "pc1500",
-                "aliases": [
-                    "Sharp PC-1500 BASIC"
-                ],
-                "extensions": [
-                    ".bas",
-                    ".pc1500.bas"
-                ],
-                "configuration": "./language-configuration.json"
-            }
-        ],
-        "grammars": [
-            {
-                "language": "pc1500",
-                "scopeName": "source.pc1500",
-                "path": "./syntaxes/sbasic.tmLanguage.json"
-            }
-        ]
+   
+
+       
+
+    "languages": [
+   
+
+       
+
+       
+
+    {
+   
+
+       
+
+       
+
+       
+
+    "id": "pc1500",
+   
+
+       
+
+       
+
+       
+
+    "aliases": [
+   
+
+       
+
+       
+
+       
+
+       
+
+    "Sharp PC-1500 BASIC"
+   
+
+       
+
+       
+
+       
+
+    ],
+   
+
+       
+
+       
+
+       
+
+    "extensions": [
+   
+
+       
+
+       
+
+       
+
+       
+
+    ".bas",
+   
+
+       
+
+       
+
+       
+
+       
+
+    ".pc1500.sbs"
+   
+
+       
+
+       
+
+       
+
+    ],
+   
+
+       
+
+       
+
+       
+
+    "configuration": "./language-configuration.json"
+   
+
+       
+
+       
+
+    },
+   
+
+       
+
+       
+
+    {
+   
+
+       
+
+       
+
+       
+
+    "id": "pc1600",
+   
+
+       
+
+       
+
+       
+
+    "aliases": [
+   
+
+       
+
+       
+
+       
+
+       
+
+    "Sharp PC-1600 BASIC"
+   
+
+       
+
+       
+
+       
+
+    ],
+   
+
+       
+
+       
+
+       
+
+    "extensions": [
+   
+
+       
+
+       
+
+       
+
+       
+
+    ".bas",
+   
+
+       
+
+       
+
+       
+
+       
+
+    ".pc1600.sbs"
+   
+
+       
+
+       
+
+       
+
+    ],
+   
+
+       
+
+       
+
+       
+
+    "configuration": "./language-configuration.json"
+   
+
+       
+
+       
+
+    }
+   
+
+       
+
+    ],
+   
+
+       
+
+    "grammars": [
+   
+
+       
+
+       
+
+    {
+   
+
+       
+
+       
+
+       
+
+    "language": "pc1500",
+   
+
+       
+
+       
+
+       
+
+    "scopeName": "source.pc1500",
+   
+
+       
+
+       
+
+       
+
+    "path": "./syntaxes/pc1500.tmLanguage.json"
+   
+
+       
+
+       
+
+    },
+   
+
+       
+
+       
+
+    {
+   
+
+       
+
+       
+
+       
+
+    "language": "pc1600",
+   
+
+       
+
+       
+
+       
+
+    "scopeName": "source.pc1600",
+   
+
+       
+
+       
+
+       
+
+    "path": "./syntaxes/pc1600.tmLanguage.json"
+   
+
+       
+
+       
+
+    }
+   
+
+       
+
+    ]
+   
+
+    },
+   
+
+    "devDependencies": {
+   
+
+       
+
+    "@types/node": "^22.9.0"
+   
+
+    },
+   
+
+    "dependencies": {
+   
+
+       
+
+    "crc": "^4.3.2"
+   
+
     }
 }
